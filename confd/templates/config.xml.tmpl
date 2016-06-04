@@ -1,5 +1,5 @@
 <configuration version="15">
-    <folder id="{{getenv "REMOTE_FOLDER_ID"}}" label="" path="{{getenv "FOLDER_PATH"}}" type="readwrite" rescanIntervalS="60" ignorePerms="false" autoNormalize="true">
+    <folder id="{{getenv "REMOTE_FOLDER_ID"}}" label="" path="{{getenv "REMOTE_FOLDER_MOUNT_PATH"}}" type="readwrite" rescanIntervalS="60" ignorePerms="false" autoNormalize="true">
         <device id="{{getenv "LOCAL_DEVICE_ID"}}"></device>
         <device id="{{getenv "REMOTE_DEVICE_ID"}}"></device>
         <minDiskFreePct>1</minDiskFreePct>
