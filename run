@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ ! -f "/config/config.xml" ]; then
+    syncthing -generate="/config"
+    export LOCAL_DEVICE_ID=`xmlstarlet select --template --value-of /configuration/device/@id /config/config.xml`
+    export GUI_API_KEY=`xmlstarlet select --template --value-of /configuration/gui/apikey /config/config.xml`
+    confd -onetime -backend env
+fi
+
+umask 0000
+
+exec /sbin/setuser abc syncthing -home=/config -no-browser -no-restart --gui-address="0.0.0.0:8384"

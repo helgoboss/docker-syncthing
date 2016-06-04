@@ -1,0 +1,5 @@
+[template]
+src = "config.xml.tmpl"
+dest = "/config/config.xml"
+owner = "root"
+mode = "0600"
