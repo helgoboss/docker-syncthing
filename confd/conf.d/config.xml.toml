@@ -1,5 +1,5 @@
 [template]
 src = "config.xml.tmpl"
-dest = "/config/config.xml"
+dest = "/root/.config/syncthing/config.xml"
 owner = "root"
 mode = "0600"
