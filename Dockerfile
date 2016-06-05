@@ -1,20 +1,13 @@
-FROM golang:1.6.2
+FROM ubuntu:latest
 
-ENV DEBIAN_FRONTEND noninteractive
+# Install Syncthing
 
 RUN apt-get update && \
-    apt-get install -y git curl jq xmlstarlet && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN VERSION=`curl -s https://api.github.com/repos/syncthing/syncthing/releases/latest | jq -r '.tag_name'` && \
-    mkdir -p /go/src/github.com/syncthing && \
-    cd /go/src/github.com/syncthing && \
-    git clone https://github.com/syncthing/syncthing.git && \
-    cd syncthing && \
-    git checkout $VERSION && \
-    go run build.go && \
-    mv bin/syncthing /root/syncthing && \
-    rm -rf /go/src/github.com/syncthing
+    apt-get install -y curl xmlstarlet && \
+    curl -s https://syncthing.net/release-key.txt | apt-key add - && \
+    echo deb http://apt.syncthing.net/ syncthing release | tee /etc/apt/sources.list.d/syncthing-release.list && \
+    apt-get update && \
+    apt-get install -y syncthing
 
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
