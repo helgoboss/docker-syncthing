@@ -18,7 +18,7 @@ ADD confd /etc/confd
 
 WORKDIR /root
 
-ENV GUI_BIND_ADDRESS 127.0.0.1
+ENV GUI_BIND_ADDRESS 0.0.0.0
 
 VOLUME ["/root/.config/syncthing"]
 

@@ -16,8 +16,8 @@
         <disableSparseFiles>false</disableSparseFiles>
         <disableTempIndexes>false</disableTempIndexes>
     </folder>
-    <device id="{{getenv "LOCAL_DEVICE_ID"}}" compression="metadata" introducer="false">
-        <address>dynamic</address>
+    <device id="{{getenv "LOCAL_DEVICE_ID"}}" name="{{getenv "DEVICE_NAME"}}" compression="metadata" introducer="false">
+        <address>tcp://{{getenv "DEVICE_IP"}}</address>
     </device>
     <device id="{{getenv "REMOTE_DEVICE_ID"}}" compression="metadata" introducer="false">
         <address>dynamic</address>
