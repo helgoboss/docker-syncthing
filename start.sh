@@ -10,4 +10,4 @@ if [ ! -f "$CONFIG_FILE" ]; then
     confd -onetime -backend env
 fi
 
-exec syncthing --gui-address="0.0.0.0:8384"
+exec syncthing
