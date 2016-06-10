@@ -20,6 +20,6 @@ WORKDIR /root
 
 VOLUME ["/root/.config/syncthing"]
 
-EXPOSE 8384 22000 21025/udp
+EXPOSE 8384 22000 21027/udp
 
 CMD ["/start.sh"]
