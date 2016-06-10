@@ -18,6 +18,8 @@ ADD confd /etc/confd
 
 WORKDIR /root
 
+ENV GUI_BIND_ADDRESS 127.0.0.1
+
 VOLUME ["/root/.config/syncthing"]
 
 EXPOSE 8384 22000 21027/udp
